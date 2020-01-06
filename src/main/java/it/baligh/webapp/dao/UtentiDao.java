@@ -12,6 +12,6 @@ public interface UtentiDao {
 	 void updateUtenti(Utenti entity);
 	 void eliminaUtenti(Utenti entity);
 	 Utenti selByidClienti(long idClienti);
-	 
+	 void SalvaAdminUser(String Password) ;
 	 
 }

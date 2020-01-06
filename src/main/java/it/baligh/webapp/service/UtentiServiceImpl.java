@@ -44,7 +44,11 @@ public class UtentiServiceImpl implements UtentiService{
 		UtentiDao.eliminaUtenti(entity);
 		
 	}
-	
+	@Override
+	public void SalvaAdminUser(String Password) {
+		UtentiDao.SalvaAdminUser(Password);
+		
+	}
 	@Override
 	public Utenti selByidClienti(long idClienti) {
 		

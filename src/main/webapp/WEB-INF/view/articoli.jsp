@@ -15,15 +15,13 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Clienti</title>
-
-
-<!-- Custom fonts for this template-->
+<title>Articoli</title>
 
 
 <link
 	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
 	rel="stylesheet">
+<!-- Custom fonts for this template-->
 <link
 	href="<%=request.getContextPath()%>/static/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
@@ -62,43 +60,45 @@
 
 
 
-					<table id="example2" class="display" style="width: 100%">
+
+
+
+					<table id="example" class="display" style="width: 100%">
 						<thead>
 							<tr>
 
-								<th><spring:message code="table.clienti.nome.label" /></th>
-								<th><spring:message code="table.clienti.cognome.label" /></th>
-								<th><spring:message code="table.clienti.indirizzi.label" /></th>
-								<th><spring:message code="table.clienti.comune.label" /></th>
-								<th><spring:message code="table.clienti.prov.label" /></th>
-								<th><spring:message code="table.clienti.mail.label" /></th>
-								<th><spring:message
-										code="table.articoli.mdificaElimia.label" /></th>
-
+								<th><spring:message code="table.articoli.codart.label"/></th>
+								<th><spring:message code="table.articoli.descrizione.label"/></th>
+								<th><spring:message code="table.articoli.pesoNetto.label"/></th>
+								<th><spring:message code="table.articoli.unita.label"/></th>
+								<th><spring:message code="table.articoli.prezzo.label"/></th>
+								<th><spring:message code="table.articoli.dataCreaz.label"/></th>
+								<th><spring:message code="table.articoli.mdificaElimia.label"/></th>
+								
 
 							</tr>
 						</thead>
 
 						<tbody>
-							<c:forEach items="${tabclienti}" var="Clienti">
+							<c:forEach items="${articoli}" var="Articoli">
 								<tr>
-									<td>${Clienti.nome}</td>
-									<td>${Clienti.cognome}</td>
-									<td>${Clienti.indirizzo}</td>
-									<td>${Clienti.prov}</td>
-									<td>${Clienti.comune}</td>
-									<td>${Clienti.mail}</td>
+									<td>${Articoli.codArt}</td>
+									<td>${Articoli.descrizione}</td>
+									<td>${Articoli.pesoNetto}</td>
+									<td>${Articoli.um}</td>
+									<td>${Articoli.prezzo}</td>
+									<td>${Articoli.dataCreaz}</td>
+
+									
 
 
-
-
-									<td><a
-										href="<spring:url value="/clienti/modifica/${Clienti.idClienti}" />"
-										class="btn btn-info btn-circle"> <i
-											class="fas fa-info-circle"></i>
-									</a> <a
-										href="<spring:url value="/articoli/elimina/${Clienti.idClienti}" />"
-										class="btn btn-danger btn-circle"> <i class="fas fa-trash"></i>
+										
+									<td><a 	href="<spring:url value="/articoli/modifica/${Articoli.id}" />" 
+									       class="btn btn-info btn-circle">
+											<i class="fas fa-info-circle"></i>
+									</a> <a href="<spring:url value="/articoli/elimina/${Articoli.id}" />"
+									 class="btn btn-danger btn-circle"> <i
+											class="fas fa-trash"></i>
 									</a></td>
 
 
@@ -114,12 +114,6 @@
 						</tbody>
 
 					</table>
-
-
-
-
-
-
 
 
 
@@ -189,16 +183,16 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="<%=request.getContextPath()%>/static/js/sb-admin-2.min.js"></script>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.js" /></script>
 	<script
 		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" /></script>
 
 	<script>
 		$(document).ready(function() {
-			$('#example2').DataTable();
+			$('#example').DataTable();
 		});
 	</script>
-
 
 </body>
 

@@ -3,8 +3,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
+
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
 
@@ -15,15 +16,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Clienti</title>
+<title>Nuovo Articolo</title>
 
 
 <!-- Custom fonts for this template-->
-
-
-<link
-	href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
-	rel="stylesheet">
 <link
 	href="<%=request.getContextPath()%>/static/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
@@ -62,61 +58,92 @@
 
 
 
-					<table id="example2" class="display" style="width: 100%">
-						<thead>
-							<tr>
-
-								<th><spring:message code="table.clienti.nome.label" /></th>
-								<th><spring:message code="table.clienti.cognome.label" /></th>
-								<th><spring:message code="table.clienti.indirizzi.label" /></th>
-								<th><spring:message code="table.clienti.comune.label" /></th>
-								<th><spring:message code="table.clienti.prov.label" /></th>
-								<th><spring:message code="table.clienti.mail.label" /></th>
-								<th><spring:message
-										code="table.articoli.mdificaElimia.label" /></th>
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">Nuovo Articoli</h6>
+						</div>
+						<div class="card-body">
 
 
-							</tr>
-						</thead>
+							<div class="portlet-body form">
+								<form:form method="POST" modelAttribute="newArticolo"
+									>
+									<form:errors path="*" cssClass="alert alert-danger"
+										element="div" />
+										
+									<div class="form-body">
+									<form:hidden path="id"/>
+									
+  
+										<div class="form-group">
+											<label for="codArt"><spring:message
+													code="aggiungi.articolo.codart" /></label>
+											<form:input id="codArt" path="codArt" type="text"
+												class="form-control" placeholder="Codice Articolo" />
+											<form:errors path="codArt" cssClass="text-danger" />
+										</div>
 
-						<tbody>
-							<c:forEach items="${tabclienti}" var="Clienti">
-								<tr>
-									<td>${Clienti.nome}</td>
-									<td>${Clienti.cognome}</td>
-									<td>${Clienti.indirizzo}</td>
-									<td>${Clienti.prov}</td>
-									<td>${Clienti.comune}</td>
-									<td>${Clienti.mail}</td>
-
-
-
-
-									<td><a
-										href="<spring:url value="/clienti/modifica/${Clienti.idClienti}" />"
-										class="btn btn-info btn-circle"> <i
-											class="fas fa-info-circle"></i>
-									</a> <a
-										href="<spring:url value="/articoli/elimina/${Clienti.idClienti}" />"
-										class="btn btn-danger btn-circle"> <i class="fas fa-trash"></i>
-									</a></td>
-
-
-
-
-								</tr>
-							</c:forEach>
+										<div class="form-group">
+											<label for="descrizione"><spring:message
+													code="aggiungi.articolo.descrizione" /></label>
+											<form:input id="descrizione" path="descrizione" type="text"
+												class="form-control" placeholder="Descrizione Articolo" />
+											<form:errors path="descrizione" cssClass="text-danger" />
+										</div>
 
 
+										<div class="form-row">
+											<div class="form-group col-md-4">
+												<label for="um"><spring:message
+														code="aggiungi.articolo.unita" /></label>
+												<form:select path="um" class="form-control">
+													<form:option value="PZ" label="Pezzi" />
+													<form:option value="LT" label="Litri" />
+													<form:option value="KG" label="Kilogrammi" />
+												</form:select>
+												<form:errors path="um" cssClass="text-danger" />
+											</div>
+											<div class="form-group col-md-4">
+												<label for="prezzo"><spring:message
+														code="aggiungi.articolo.prezzo" /></label>
+												<form:input id="prezzo" path="prezzo" type="text"
+													class="form-control" />
+												<form:errors path="prezzo" cssClass="text-danger" />
+											</div>
+
+											<div class="form-group col-md-4">
+												<label for="pesoNetto"><spring:message
+														code="aggiungi.articolo.pesoNetto" /></label>
+												<form:input id="pesoNetto" path="pesoNetto" type="text"
+													class="form-control" />
+												<form:errors path="pesoNetto" cssClass="text-danger" />
+											</div>
+
+
+										</div>
 
 
 
-						</tbody>
+									</div>
 
-					</table>
+									<hr class="line-form">
+
+									<div class="form-actions">
+										<input type="submit" id="btnAdd"
+											class="btn btn-primary form-buttons"
+											value=<spring:message code="aggiungi.articolo.aggiungi.button"/> />
+										<a href="<spring:url value="/articoli/" /> " id="btnAbort"
+											class="btn btn-default form-buttons"> <spring:message
+												code="aggiungi.articolo.annula.button" />
+										</a>
+									</div>
+
+								</form:form>
+							</div>
 
 
-
+						</div>
+					</div>
 
 
 
@@ -189,15 +216,6 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="<%=request.getContextPath()%>/static/js/sb-admin-2.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.js" /></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" /></script>
-
-	<script>
-		$(document).ready(function() {
-			$('#example2').DataTable();
-		});
-	</script>
 
 
 </body>

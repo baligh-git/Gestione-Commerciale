@@ -5,41 +5,35 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
-	
-	<springframework.version>5.2.2.RELEASE</springframework.version>
-	<hibernate.version>5.4.10.Final</hibernate.version>
-	
-	</properties>
-	
-	<dependencies>
-	
-	<!-- Spring -->
-	
-	
-	<dependency>
-	
-	<groupId>org.springframework</groupId>
-	
-	<artifactId>spring-core</artifactId>
-	
-	<version>${springframework.version}</version>
-	
-	</dependency>
-	
-	
-	<dependency>
-	
-	<groupId>org.springframework</groupId>
-	
-	<artifactId>spring-webmvc</artifactId>
-	
-	<version>${springframework.version}</version>
-	
-	</dependency>
-	
-	<!-- Servlet+JSP+JSTL -->
-	
-	 <dependency>
+	  <springframework.version>5.2.2.RELEASE</springframework.version>
+	  <hibernate.version>5.4.10.Final</hibernate.version>
+	  <springsecurity.version>5.1.5.RELEASE</springsecurity.version>
+	  </properties>
+  <dependencies>
+	  <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>${springframework.version}</version>
+	  </dependency>
+	  <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${springframework.version}</version>
+	  </dependency>
+	  
+	  <!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+	  <!-- servlet + jsp + jstl -->
+	  <dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>javax.servlet-api</artifactId>
 	    <version>4.0.1</version>
@@ -54,9 +48,7 @@
 		 <artifactId>javax.servlet.jsp-api</artifactId>
 		 <version>2.3.3</version>
 	   </dependency>
-	
-	
-	<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+	   	<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
 		<dependency>
 		    <groupId>com.microsoft.sqlserver</groupId>
 		    <artifactId>mssql-jdbc</artifactId>
@@ -102,11 +94,8 @@
 		    <artifactId>slf4j-api</artifactId>
 		    <version>1.7.26</version>
 		</dependency>
-	
-	
-	
-	
-	</dependencies>
+	  
+  </dependencies>
 	
 	
 	<build>
