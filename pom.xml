@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
-	  <springframework.version>5.2.3.RELEASE</springframework.version>
+	  <springframework.version>5.3.18</springframework.version>
 	  <hibernate.version>5.4.10.Final</hibernate.version>
 	  <springsecurity.version>5.1.5.RELEASE</springsecurity.version>
 	  </properties>
